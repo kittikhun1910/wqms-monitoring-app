@@ -1,0 +1,12 @@
+// Disable
+.disabled {
+    cursor: not-allowed;
+}
+
+.overflow-y {
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
