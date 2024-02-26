@@ -1,1 +1,1 @@
-export { default as MQTTComponent } from "./MQTTComponent";
+export { default as ControlRelayComponent } from "./ControlRelay";

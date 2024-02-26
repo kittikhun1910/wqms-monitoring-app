@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { MQTTComponent } from "../../components";
+import { ControlRelayComponent } from "../../components";
 import { fetchDataFromInfluxDB } from "../../query/useRelay";
 
 const Demo: React.FC = () => {
@@ -25,7 +25,7 @@ const Demo: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <MQTTComponent data={data as any} />
+      <ControlRelayComponent data={data as any} />
     </div>
   );
 };

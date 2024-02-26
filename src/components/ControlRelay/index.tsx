@@ -1,10 +1,10 @@
 import React from "react";
 
-interface MQTTComponentProps {
+interface ControlRelayComponentProps {
   data: { time: string; field: string; value: string }[] | null;
 }
 
-const MQTTComponent: React.FC<MQTTComponentProps> = ({ data }) => {
+const ControlRelayComponent: React.FC<ControlRelayComponentProps> = ({ data }) => {
   return (
     <div>
       <h1>test</h1>
@@ -20,4 +20,4 @@ const MQTTComponent: React.FC<MQTTComponentProps> = ({ data }) => {
   );
 };
 
-export default MQTTComponent;
+export default ControlRelayComponent;
