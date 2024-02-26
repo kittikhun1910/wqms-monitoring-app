@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import { MQTTComponent } from "../../components";
-import { fetchDataFromInfluxDB } from "../../query/InfluxDBService";
+import { fetchDataFromInfluxDB } from "../../query/useRelay";
 
 const Demo: React.FC = () => {
   const [data, setData] = useState<{
