@@ -1,1 +1,1 @@
-export { default as ControlRelayComponent } from "./ControlRelay";
+export { default as DisplayRelayComponent } from "./DisplayRelay";

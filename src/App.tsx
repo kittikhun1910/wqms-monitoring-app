@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Demo } from "./pages";
+import { Dashboard } from "./pages";
 const App: React.FC = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Demo />} />
+        <Route path="/" element={<Dashboard />} />
       </Routes>
     </>
   );

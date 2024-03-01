@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { ControlRelayComponent } from "../../components";
+import { DisplayRelayComponent } from "../../components";
 import { fetchDataFromInfluxDB } from "../../query/useRelay";
 
-const Demo: React.FC = () => {
+const Dashboard: React.FC = () => {
   const [data, setData] = useState<{
     time: string;
     field: string;
@@ -25,9 +25,9 @@ const Demo: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <ControlRelayComponent data={data as any} />
+      <DisplayRelayComponent data={data as any} />
     </div>
   );
 };
 
-export default Demo;
+export default Dashboard;
