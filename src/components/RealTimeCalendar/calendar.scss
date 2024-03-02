@@ -1,0 +1,102 @@
+/* index.module.scss */
+
+.react-calendar {
+    width: 400px;
+    max-width: 100%;
+    background-color: #fff;
+    color: #222;
+    border-radius: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+  
+    &__navigation button {
+      color: #6f48eb;
+      min-width: 44px;
+      background: none;
+      font-size: 16px;
+      margin-top: 8px;
+  
+      &:enabled:hover,
+      &:enabled:focus {
+        background-color: #f8f8fa;
+      }
+  
+      &[disabled] {
+        background-color: #f0f0f0;
+      }
+    }
+  
+    abbr[title] {
+      text-decoration: none;
+    }
+  
+    &__tile:enabled:hover,
+    &__tile:enabled:focus {
+      background: #f8f8fa;
+      color: #6f48eb;
+      border-radius: 6px;
+    }
+  
+    &__tile--now {
+      background: #6f48eb33;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #6f48eb;
+    }
+  
+    &__tile--now:enabled:hover,
+    &__tile--now:enabled:focus {
+      background: #6f48eb33;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #6f48eb;
+    }
+  
+    &__tile--hasActive:enabled:hover,
+    &__tile--hasActive:enabled:focus {
+      background: #f8f8fa;
+    }
+  
+    &__tile--active {
+      background: #6f48eb;
+      border-radius: 6px;
+      font-weight: bold;
+      color: white;
+    }
+  
+    &__tile--active:enabled:hover,
+    &__tile--active:enabled:focus {
+      background: #6f48eb;
+      color: white;
+    }
+  
+    &--selectRange .tile--hover {
+      background-color: #f8f8fa;
+    }
+  
+    &__tile--range {
+      background: #f8f8fa;
+      color: #6f48eb;
+      border-radius: 0;
+    }
+  
+    &__tile--rangeStart {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      background: #6f48eb;
+      color: white;
+    }
+  
+    &__tile--rangeEnd {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      background: #6f48eb;
+      color: white;
+    }
+  }
+  

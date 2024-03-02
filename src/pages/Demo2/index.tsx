@@ -9,6 +9,8 @@ import {
   DisplayWaterParametor,
   DisplayRelayComponent,
   Navbar,
+  RealTimeCock,
+  RealTimeCalendar
 } from "../../components";
 
 const Demo2: React.FC = () => {
@@ -45,8 +47,10 @@ const Demo2: React.FC = () => {
     <div className={styles.container}>
       <Navbar />
       <DisplayWaterParametor data={data as any} />
-
       <DisplayRelayComponent data={data as any} />
+      <RealTimeCock />
+      <RealTimeCalendar />
+
     </div>
   );
 };
