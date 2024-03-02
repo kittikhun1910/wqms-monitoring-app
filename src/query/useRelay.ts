@@ -18,7 +18,9 @@ export const fetchDataFromInfluxDB = async (): Promise<
     }[]
   | null
 > => {
-  const query = flux`from(bucket: "${bucket}") |> range(start: -1h) |> filter(fn: (r) => r.topic == "wqms/water_tank/tank1") |> filter(fn: (r) => r._field == "avgpH")
+  const query = flux`from(bucket: "${bucket}") |> range(start: -7d)
+  |> filter(fn: (r) => r.topic == "wqms/water_tank/relay_status")
+  |> last()
  `;
 
   try {

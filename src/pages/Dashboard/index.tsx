@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { DisplayRelayComponent } from "../../components";
+import { DisplayRelayComponent, MQTTComponent, Navbar } from "../../components";
 import { fetchDataFromInfluxDB } from "../../query/useRelay";
 
 const Dashboard: React.FC = () => {
@@ -24,9 +24,15 @@ const Dashboard: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <DisplayRelayComponent data={data as any} />
-    </div>
+    <>
+      <Navbar />
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <DisplayRelayComponent data={data as any} />
+          <MQTTComponent />
+        </div>
+      </div>
+    </>
   );
 };
 
