@@ -186,14 +186,14 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
             High Temp
             <div className={styles.imgContainer}>
               <img src={TemperatureUpPNG} alt="TemperatureUpPNG" />
-              {maxTemp.value.toString()}
+              {maxTemp.value.toString() + " °C"}
             </div>
           </div>
           <div className={styles.lowValue}>
             Low Temp
             <div className={styles.imgContainer}>
               <img src={TemperatureDownPNG} alt="TemperatureDownPNG" />
-              {minTemp.value.toString()}
+              {minTemp.value.toString() + " °C"}
             </div>
           </div>
         </div>
@@ -208,14 +208,14 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
             High pH
             <div className={styles.imgContainer}>
               <img src={PhBalancePNG} alt="PhBalancePNG" />
-              {maxPH.value.toString()}
+              {maxPH.value.toString() + " °C"}
             </div>
           </div>
           <div className={styles.lowValue}>
             Low pH
             <div className={styles.imgContainer}>
               <img src={PhBalancePNG} alt="PhBalancePNG" />
-              {minPH.value.toString()}
+              {minPH.value.toString() + " °C"}
             </div>
           </div>
         </div>
