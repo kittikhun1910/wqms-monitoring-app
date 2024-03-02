@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { MQTTComponent } from "../../components";
-import { fetchDataFromInfluxDB } from "../../query/InfluxDBService";
+import { DisplayRelayComponent, MQTTComponent, Navbar } from "../../components";
+import { fetchDataFromInfluxDB } from "../../query/useRelay";
 
-const Demo: React.FC = () => {
+const Dashboard: React.FC = () => {
   const [data, setData] = useState<{
     time: string;
     field: string;
@@ -24,10 +24,16 @@ const Demo: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <MQTTComponent data={data as any} />
-    </div>
+    <>
+      <Navbar />
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <DisplayRelayComponent data={data as any} />
+          <MQTTComponent />
+        </div>
+      </div>
+    </>
   );
 };
 
-export default Demo;
+export default Dashboard;

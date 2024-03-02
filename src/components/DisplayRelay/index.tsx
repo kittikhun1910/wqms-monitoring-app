@@ -1,10 +1,12 @@
 import React from "react";
 
-interface MQTTComponentProps {
+interface DisplayRelayComponentProps {
   data: { time: string; field: string; value: string }[] | null;
+
 }
 
-const MQTTComponent: React.FC<MQTTComponentProps> = ({ data }) => {
+const DisplayRelayComponent: React.FC<DisplayRelayComponentProps> = ({ data }) => {
+  console.log(data);
   return (
     <div>
       <h1>test</h1>
@@ -12,7 +14,7 @@ const MQTTComponent: React.FC<MQTTComponentProps> = ({ data }) => {
         <div>
           <p>All fetched values:</p>
           {data.map((record, index) => (
-            <p key={index}>{`${record.field}=${record.value}`}</p>
+            <p key={index}>{`${record.time}:${record.field}=${record.value}`}</p>
           ))}
         </div>
       )}
@@ -20,4 +22,4 @@ const MQTTComponent: React.FC<MQTTComponentProps> = ({ data }) => {
   );
 };
 
-export default MQTTComponent;
+export default DisplayRelayComponent;
