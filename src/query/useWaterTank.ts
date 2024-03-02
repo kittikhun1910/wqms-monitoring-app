@@ -8,7 +8,10 @@ const bucket = INFLUX_BUCKET;
 const client = new InfluxDB({ url, token });
 const queryApi = client.getQueryApi(org);
 
-// Your existing code
+/**
+ * Connects to InfluxDB and retrieves data for average pH in the last 7 days.
+ * @returns Array of data points or null if no data is found
+ */
 
 export const fetchDataAvgpHInfluxDB = async (): Promise<
   | {
