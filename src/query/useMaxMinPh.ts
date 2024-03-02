@@ -10,7 +10,7 @@ const queryApi = client.getQueryApi(org);
 
 // Your existing code
 
-export const fetchDataAvgpHInfluxDB = async (): Promise<
+export const fetchDataMaxMinPhInfluxDB = async (): Promise<
   | {
       time: string;
       field: string;
@@ -19,9 +19,11 @@ export const fetchDataAvgpHInfluxDB = async (): Promise<
   | null
 > => {
   const query = flux`from(bucket: "${bucket}") 
-    |> range(start: -7d)
-    |> filter(fn: (r) => r.topic == "wqms/water_tank/tank1")
-    |> last()`;
+    |> range(start: -1d)
+    |> filter(fn: (r) => r.topic == "wqms/water_tank/tank1" and r._field == "avgpH")
+    |> aggregateWindow(every: 5m, fn: min)
+    |> aggregateWindow(every: 5m, fn: max)
+  `;
 
   try {
     const result = await queryApi.collectRows(query);
