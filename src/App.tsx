@@ -8,7 +8,7 @@ const App: React.FC = () => {
     <div className={styles.container}>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/Demo" element={<Demo2 />} />
+        <Route path="/Dashboard" element={<Demo2 />} />
       </Routes>
     </div>
   );

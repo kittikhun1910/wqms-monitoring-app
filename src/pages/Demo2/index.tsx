@@ -5,14 +5,18 @@ import { fetchDataMaxMinPhInfluxDB } from "../../query/useMaxMinPh";
 import { fetchDataMaxMinTempInfluxDB } from "../../query/useMaxminTemp";
 import { fetchDataFromInfluxDB } from "../../query/useRelay";
 
-import { DisplayWaterParametor,DisplayRelayComponent } from "../../components";
+import {
+  DisplayWaterParametor,
+  DisplayRelayComponent,
+  Navbar,
+} from "../../components";
 
 const Demo2: React.FC = () => {
   const [data, setData] = useState<{
     waterData: { time: string; field: string; value: string }[] | null;
     maxMinpHData: { time: string; field: string; value: string }[] | null;
     maxMinTempData: { time: string; field: string; value: string }[] | null;
-    relayStatus: { time: string; field: string; value: string}[] | null;
+    relayStatus: { time: string; field: string; value: string }[] | null;
   }>({
     waterData: null,
     maxMinpHData: null,
@@ -28,7 +32,7 @@ const Demo2: React.FC = () => {
         const maxMinTempData: any = await fetchDataMaxMinTempInfluxDB();
         const relayStatus: any = await fetchDataFromInfluxDB();
 
-        setData({ waterData, maxMinpHData, maxMinTempData,relayStatus });
+        setData({ waterData, maxMinpHData, maxMinTempData, relayStatus });
       } catch (error) {
         console.error("Error fetching data from InfluxDB:", error);
       }
@@ -39,7 +43,9 @@ const Demo2: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      <Navbar />
       <DisplayWaterParametor data={data as any} />
+
       <DisplayRelayComponent data={data as any} />
     </div>
   );
