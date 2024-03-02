@@ -175,9 +175,6 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
       },
     ],
   };
-
-  console.log("data component", data);
-
   return (
     <div className={styles.container}>
       <div className={styles.tempGuage}>

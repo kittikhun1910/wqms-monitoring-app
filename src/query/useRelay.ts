@@ -31,7 +31,6 @@ export const fetchDataFromInfluxDB = async (): Promise<
         field: record._field,
         value: record._value,
       }));
-      console.log("Records:", records);
       return records;
     } else {
       return null;
