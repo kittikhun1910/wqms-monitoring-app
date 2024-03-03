@@ -216,7 +216,7 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
               {minPH.value.toString() + " °C"}
             </div>
           </div>
-          <a href="/Graph">More Details</a>
+          <a href="/GraphPH">More Details</a>
         </div>
         <div className={styles.divStyle}>
           pH
