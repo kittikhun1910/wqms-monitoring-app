@@ -21,8 +21,7 @@ const DisplayWaterLevel: React.FC<DisplayWaterLevelProps> = ({ data }) => {
   const water_level_data = relayData.find(
     (item) => item.field === "water_level"
   );
-
-  console.log(water_level_data?.value)
+  
   let imageSrc = WaterTankPNG;
   let waterLevelText = "FULL";
 

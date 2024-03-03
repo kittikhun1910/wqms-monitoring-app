@@ -18,8 +18,7 @@ interface DisplayRelayProps {
 
 const DisplayRelayComponent: React.FC<DisplayRelayProps> = ({ data }) => {
   const mqttClient = mqtt.connect("ws://54.255.69.30:8080");
-  console.log(data.relayStatus);
-
+  
   const relayData = data.relayStatus || [];
   const relay_1data = relayData.find((item) => item.field === "relay_1");
   const relay_2data = relayData.find((item) => item.field === "relay_2");
