@@ -2,15 +2,60 @@
 
 .container {
   display: flex;
-  border: 1px solid red;
-  background-color: #f5f8ee;
-  margin-top: 70px;
-  padding: 10px;
-  border-radius: 5px;
-  justify-content: center;
-  height: 1000px;
-  
-  .content {
+  width: 98vw;
+  margin: 70px 50px 0 50px;
+
+  .contentLeft {
     display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+
+    img {
+      width: 700px;
+      height: 600px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+      filter: blur(2px);
+    }
+  }
+  .contentRight {
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .header {
+      text-align: center;
+      border: solid rebeccapurple 1px;
+    }
+    .buttonGetStart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 25px;
+      border: solid 2px #77e6ab;
+      background-color: #fff;
+      cursor: pointer;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      button {
+        cursor: pointer;
+      }
+      &:hover {
+        width: 205px;
+        height: 55px;
+        background-color: #77e6ab;
+        box-shadow: 0px 5px 10px rgba(5, 225, 137, 0.396);
+      }
+    }
   }
 }
