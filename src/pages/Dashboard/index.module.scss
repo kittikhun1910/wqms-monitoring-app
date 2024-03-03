@@ -2,15 +2,23 @@
 
 .container {
   display: flex;
-  border: 1px solid red;
-  background-color: #f5f8ee;
+  flex-direction: column;
   margin-top: 70px;
-  padding: 10px;
-  border-radius: 5px;
-  justify-content: center;
-  height: 1000px;
-  
-  .content {
+  gap: 15px;
+  margin-left: 55px;
+
+  .contentBox {
     display: flex;
+    flex-direction: row;
+    gap: 20px;
+    .subContentBox {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  .bottomBox {
+    display: flex;
+    gap: 52px;
   }
 }
