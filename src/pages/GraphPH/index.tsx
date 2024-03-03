@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { fetchAllDataTempInfluxDB } from "../../query/useTempGraph";
+import { fetchAllDataPHInfluxDB } from "../../query/usePhGraph";
 
 import styles from "./index.module.scss";
-import { Navbar, TempGraph } from "../../components";
+import { Navbar, PhGraph } from "../../components";
 
-const Graph: React.FC = () => {
+const GraphPH: React.FC = () => {
   const [data, setData] = useState<{
-    tempAllData: { time: string; field: string; value: string }[] | null;
+    pHAllData: { time: string; field: string; value: string }[] | null;
   }>({
-    tempAllData: null,
+    pHAllData: null,
   });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const tempAllData: any = await fetchAllDataTempInfluxDB();
-        setData({ tempAllData });
+        const pHAllData: any = await fetchAllDataPHInfluxDB();
+        setData({ pHAllData });
       } catch (error) {
         console.error("Error fetching data from InfluxDB:", error);
       }
@@ -23,31 +23,32 @@ const Graph: React.FC = () => {
 
     fetchData();
   }, []);
+  console.log(data.pHAllData);
 
   return (
     <>
       <Navbar />
       <div className={styles.container}>
-      <button
+        <button
+          className={styles.button}
+          onClick={() => (window.location.href = "/Graph")}
+        >
+          {" "}
+          Back to Temp
+        </button>
+        <div className={styles.content}>
+          <PhGraph data={data as any} />
+        </div>
+        <button
           className={styles.button}
           onClick={() => (window.location.href = "/Dashboard")}
         >
           {" "}
-          Back
-        </button>
-        <div className={styles.content}>
-          <TempGraph data={data as any} />
-        </div>
-        <button
-          className={styles.button}
-          onClick={() => (window.location.href = "/GraphPH")}
-        >
-          {" "}
-          Next to pH
+          Dashboard
         </button>
       </div>
     </>
   );
 };
 
-export default Graph;
+export default GraphPH;
