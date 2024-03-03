@@ -6,7 +6,6 @@
 
   .tempGuage {
     display: flex;
-    border: solid 1px rgb(184, 179, 179);
     background-color: #fff;
     padding: 20px;
     height: 250px;
@@ -15,12 +14,13 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
     .sumBox {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 20px;
+      align-items: center;
 
       .hightValue {
         display: flex;
@@ -29,6 +29,7 @@
         width: 150px;
         height: 70px;
         justify-content: center;
+        text-align: center;
         border-radius: 15px;
         padding: 10px;
 
@@ -54,6 +55,7 @@
         justify-content: center;
         border-radius: 15px;
         padding: 10px;
+        text-align: center;
 
         .imgContainer {
           display: flex;
