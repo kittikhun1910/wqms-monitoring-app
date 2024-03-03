@@ -38,13 +38,13 @@ const Navbar: React.FC = () => {
             DASHBOARD
           </div>
         </Link>
-        <Link to="/Stats" style={{ textDecoration: "none" }}>
+        <Link to="/Graph" style={{ textDecoration: "none" }}>
           <div className={styles.menuContent}>
             <img src={StatsPNG} alt="Stats" />
             GRAPH
           </div>
         </Link>
-        <Link to="/User" style={{ textDecoration: "none" }}>
+        <Link to="/UserInfo" style={{ textDecoration: "none" }}>
           <div className={styles.menuContent}>
             <img src={UserPNG} alt="User" />
             USER

@@ -1,3 +1,4 @@
 export { default as Dashboard } from "./Dashboard";
-export { default as Demo2 } from "./Demo2";
-
+export { default as Home } from "./Home";
+export { default as Graph } from "./Graph";
+export { default as UserInfo } from "./UserInfo";
