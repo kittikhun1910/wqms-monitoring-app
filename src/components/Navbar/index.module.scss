@@ -1,0 +1,84 @@
+@import "/src/styles/variable.scss";
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 70px;
+  width: 100%;
+  max-width: 100vw; /* Set max-width to 100vw */
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+  .navGroupLeft {
+    display: flex;
+    width: 100%;
+    margin: 0 0 0 20px;
+    align-items: center;
+    height: 65px;
+    margin-left: 30px;
+    gap: 20px;
+
+    .imgMenu {
+      display: flex;
+      cursor: pointer;
+      border-right: solid 1px rgb(184, 179, 179);
+      width: 60px;
+      .menu {
+        width: 40px;
+        height: 35px;
+        object-fit: contain;
+      }
+    }
+    .imgLogo {
+      display: flex;
+      cursor: pointer;
+      .logo {
+        width: 120px;
+        height: 52px;
+        object-fit: contain;
+        padding: 3px;
+        margin-left: 20px;
+      }
+    }
+  }
+  .navGroupRight {
+    display: flex;
+    gap: 51px;
+    width: 100%;
+    margin: 0 40px 0 0;
+    justify-content: end;
+
+    .menuContent {
+      display: flex;
+      width: 90px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 12px;
+      font-weight: 600;
+      gap: 5px;
+      cursor: pointer;
+      color: #000;
+
+      img {
+        margin-top: 5px;
+        width: 25px;
+        height: 25px;
+        object-fit: contain;
+
+        &:hover {
+          transform: rotate(15deg);
+        }
+      }
+      &:hover {
+        background-color: rgba(245, 248, 238, 0.9);
+        border-radius: 15px;
+      }
+    }
+  }
+}

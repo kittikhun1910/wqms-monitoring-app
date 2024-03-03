@@ -8,9 +8,12 @@ const bucket = INFLUX_BUCKET;
 const client = new InfluxDB({ url, token });
 const queryApi = client.getQueryApi(org);
 
-// Your existing code
+/**
+ * Connects to InfluxDB and retrieves data for average pH in the last 7 days.
+ * @returns Array of data points or null if no data is found
+ */
 
-export const fetchDataFromInfluxDB = async (): Promise<
+export const fetchDataAvgpHInfluxDB = async (): Promise<
   | {
       time: string;
       field: string;
@@ -18,7 +21,10 @@ export const fetchDataFromInfluxDB = async (): Promise<
     }[]
   | null
 > => {
-  const query = flux`from(bucket: "${bucket}") |> range(start: -1d) |> filter(fn: (r) => r.topic == "wqms/water_tank/relay_status") |> last()`;
+  const query = flux`from(bucket: "${bucket}") 
+    |> range(start: -7d)
+    |> filter(fn: (r) => r.topic == "wqms/water_tank/tank1")
+    |> last()`;
 
   try {
     const result = await queryApi.collectRows(query);
@@ -28,7 +34,6 @@ export const fetchDataFromInfluxDB = async (): Promise<
         field: record._field,
         value: record._value,
       }));
-      console.log("Records:", records);
       return records;
     } else {
       return null;
