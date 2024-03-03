@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.navGroupLeft}>
         <div className={styles.imgMenu}>
-          <Link to="/Menu">
+          <Link to="/">
             <img src={MenuBurger} alt="Menu" className={styles.menu} />
           </Link>
         </div>
@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
       <div className={styles.navGroupRight}>
-        <Link to="/Home" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <div className={styles.menuContent}>
             <img src={HomePNG} alt="Home" />
             HOME

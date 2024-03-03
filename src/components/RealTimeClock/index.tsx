@@ -52,8 +52,7 @@ const RealTimeClock: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Real Time Clock</h1>
-      <p>{time}</p>
+      <h2>{time}</h2>
     </div>
   );
 };
