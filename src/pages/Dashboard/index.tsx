@@ -13,6 +13,7 @@ import {
   RealTimeCalendar,
   DisplayWaterLevel,
 } from "../../components";
+import Verify from "../components/Verify";
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<{
@@ -45,20 +46,22 @@ const Dashboard: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar />
-      <div className={styles.contentBox}>
-        <DisplayWaterParametor data={data as any} />
-        <div className={styles.subContentBox}>
-          <RealTimeCock />
-          <RealTimeCalendar />
+    <Verify>
+      <div className={styles.container}>
+        <Navbar />
+        <div className={styles.contentBox}>
+          <DisplayWaterParametor data={data as any} />
+          <div className={styles.subContentBox}>
+            <RealTimeCock />
+            <RealTimeCalendar />
+          </div>
+        </div>
+        <div className={styles.bottomBox}>
+          <DisplayRelayComponent data={data as any} />
+          <DisplayWaterLevel data={data as any} />
         </div>
       </div>
-      <div className={styles.bottomBox} >
-        <DisplayRelayComponent data={data as any} />
-        <DisplayWaterLevel data={data as any} />
-      </div>
-    </div>
+    </Verify>
   );
 };
 

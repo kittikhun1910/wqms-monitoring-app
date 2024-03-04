@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllDataTempInfluxDB } from "../../query/useTempGraph";
-
 import styles from "./index.module.scss";
 import { Navbar, TempGraph } from "../../components";
 
-const Graph: React.FC = () => {
+export const Graph: React.FC = () => {
   const [data, setData] = useState<{
     tempAllData: { time: string; field: string; value: string }[] | null;
   }>({
@@ -28,7 +27,7 @@ const Graph: React.FC = () => {
     <>
       <Navbar />
       <div className={styles.container}>
-      <button
+        <button
           className={styles.button}
           onClick={() => (window.location.href = "/Dashboard")}
         >
@@ -49,5 +48,4 @@ const Graph: React.FC = () => {
     </>
   );
 };
-
 export default Graph;
