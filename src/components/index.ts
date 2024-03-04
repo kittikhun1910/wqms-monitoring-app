@@ -6,4 +6,3 @@ export { default as RealTimeCalendar } from "./RealTimeCalendar";
 export { default as DisplayWaterLevel } from "./DisplayWaterLevel";
 export { default as TempGraph } from "./TempGraph";
 export { default as PhGraph } from "./PhGraph";
-export { default as LoginForm } from "./LoginFrom";
