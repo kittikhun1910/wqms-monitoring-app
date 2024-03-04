@@ -3,6 +3,7 @@ import { fetchAllDataPHInfluxDB } from "../../query/usePhGraph";
 
 import styles from "./index.module.scss";
 import { Navbar, PhGraph } from "../../components";
+import Verify from "../components/Verify";
 
 const GraphPH: React.FC = () => {
   const [data, setData] = useState<{
@@ -26,28 +27,30 @@ const GraphPH: React.FC = () => {
   console.log(data.pHAllData);
 
   return (
-    <>
-      <Navbar />
-      <div className={styles.container}>
-        <button
-          className={styles.button}
-          onClick={() => (window.location.href = "/Graph")}
-        >
-          {" "}
-          Back to Temp
-        </button>
-        <div className={styles.content}>
-          <PhGraph data={data as any} />
+    <Verify>
+      <>
+        <Navbar />
+        <div className={styles.container}>
+          <button
+            className={styles.button}
+            onClick={() => (window.location.href = "/Graph")}
+          >
+            {" "}
+            Back to Temp
+          </button>
+          <div className={styles.content}>
+            <PhGraph data={data as any} />
+          </div>
+          <button
+            className={styles.button}
+            onClick={() => (window.location.href = "/Dashboard")}
+          >
+            {" "}
+            Dashboard
+          </button>
         </div>
-        <button
-          className={styles.button}
-          onClick={() => (window.location.href = "/Dashboard")}
-        >
-          {" "}
-          Dashboard
-        </button>
-      </div>
-    </>
+      </>
+    </Verify>
   );
 };
 

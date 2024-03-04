@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchAllDataTempInfluxDB } from "../../query/useTempGraph";
 import styles from "./index.module.scss";
 import { Navbar, TempGraph } from "../../components";
+import Verify from "../components/Verify";
 
 export const Graph: React.FC = () => {
   const [data, setData] = useState<{
@@ -24,28 +25,30 @@ export const Graph: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <Navbar />
-      <div className={styles.container}>
-        <button
-          className={styles.button}
-          onClick={() => (window.location.href = "/Dashboard")}
-        >
-          {" "}
-          Back
-        </button>
-        <div className={styles.content}>
-          <TempGraph data={data as any} />
+    <Verify>
+      <>
+        <Navbar />
+        <div className={styles.container}>
+          <button
+            className={styles.button}
+            onClick={() => (window.location.href = "/Dashboard")}
+          >
+            {" "}
+            Back
+          </button>
+          <div className={styles.content}>
+            <TempGraph data={data as any} />
+          </div>
+          <button
+            className={styles.button}
+            onClick={() => (window.location.href = "/GraphPH")}
+          >
+            {" "}
+            Next to pH
+          </button>
         </div>
-        <button
-          className={styles.button}
-          onClick={() => (window.location.href = "/GraphPH")}
-        >
-          {" "}
-          Next to pH
-        </button>
-      </div>
-    </>
+      </>
+    </Verify>
   );
 };
 export default Graph;
