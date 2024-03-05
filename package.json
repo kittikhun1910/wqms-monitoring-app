@@ -12,9 +12,11 @@
   "dependencies": {
     "@influxdata/influxdb-client": "^1.33.2",
     "@influxdata/influxdb-client-apis": "^1.33.2",
+    "axios": "^1.6.7",
     "dotenv": "^16.4.5",
     "jscharting": "^3.4.0",
     "jscharting-react": "^1.4.2",
+    "jsonwebtoken": "^9.0.2",
     "mqtt": "^5.3.5",
     "react": "^18.2.0",
     "react-calendar": "^4.8.0",
@@ -35,5 +37,6 @@
     "sass-loader": "^14.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.4"
-  }
+  },
+  "proxy": "https://rw8y2lq7ja.execute-api.ap-southeast-1.amazonaws.com"
 }

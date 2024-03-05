@@ -65,7 +65,7 @@ const TempGraph: React.FC<DisplayTempGraphProps> = ({ data }) => {
 
   const options1h = {
     debug: false,
-    type: "area",
+    type: "line",
     title_label_text: "Area Series Types (1 Hour)",
     legend_visible: false,
     defaultSeries: {
@@ -78,7 +78,7 @@ const TempGraph: React.FC<DisplayTempGraphProps> = ({ data }) => {
       scale_type: "time",
     },
     yAxis: {
-      defaultTick_max: 14,
+      defaultTick_max: 40,
       defaultTick_min: 0,
     },
     series: [{ name: "Purchases", points: chartData1h }],
@@ -86,7 +86,7 @@ const TempGraph: React.FC<DisplayTempGraphProps> = ({ data }) => {
 
   const options1d = {
     debug: false,
-    type: "area",
+    type: "line",
     title_label_text: "Area Series Types (1 Day)",
     legend_visible: false,
     defaultSeries: {
@@ -99,7 +99,7 @@ const TempGraph: React.FC<DisplayTempGraphProps> = ({ data }) => {
       scale_type: "time",
     },
     yAxis: {
-      defaultTick_max: 14,
+      defaultTick_max: 40,
       defaultTick_min: 0,
     },
     series: [{ name: "Purchases", points: chartData1d }],
@@ -107,7 +107,7 @@ const TempGraph: React.FC<DisplayTempGraphProps> = ({ data }) => {
 
   const options7d = {
     debug: false,
-    type: "area",
+    type: "line",
     title_label_text: "Area Series Types (7 Days)",
     legend_visible: false,
     defaultSeries: {
@@ -120,7 +120,7 @@ const TempGraph: React.FC<DisplayTempGraphProps> = ({ data }) => {
       scale_type: "time",
     },
     yAxis: {
-      defaultTick_max: 14,
+      defaultTick_max: 40,
       defaultTick_min: 0,
     },
     series: [{ name: "Purchases", points: chartData7d }],
