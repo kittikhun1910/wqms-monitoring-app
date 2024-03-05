@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import style from "./index.module.scss";
+
+import LogoPNG from "/public/webIcon.png";
+import VerifyPNG from "/src/images/verifying-identity.png";
+import LogoLogin from "/src/images/logo-big.png";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -70,32 +75,41 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-        {error && <p>{error}</p>}
-      </form>
+    <div className={style.container}>
+      <div className={style.contentBox}>
+        <div className={style.contentLeftBox}>
+          <img src={LogoLogin} alt="LogoLogin" className={style.logoLogin} />
+          <img src={VerifyPNG} alt="VerifyPNG" className={style.verifying} />
+        </div>
+        <div className={style.contentRightBox}>
+          <img src={LogoPNG} alt="LogoPNG" />
+          Sign in to WQMS
+          <form onSubmit={handleSubmit} className={style.From}>
+            <label className={style.buttonInput}>
+              Username
+              <input
+                type="text"
+                name="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </label>
+            <label className={style.buttonInput}>
+              Password
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label>
+            <button type="submit" className={style.button}>
+              Login
+            </button>
+            {error && <p>{error}</p>}
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

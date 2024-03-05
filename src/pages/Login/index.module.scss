@@ -1,0 +1,117 @@
+@import "/src/styles/variable.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 98vw;
+
+  .contentBox {
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    width: 900px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 36px;
+    gap: 10px;
+
+    .contentRightBox {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      background-color: #f4fff086;
+      border-radius: 15px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+      img {
+        margin-top: 10px;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        padding: 10px;
+        border-radius: 15px;
+      }
+
+      .From {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+
+        .buttonInput {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          padding: 10px;
+          width: 300px;
+          margin-top: 10px;
+          &:hover {
+            cursor: pointer;
+          }
+
+          input {
+            width: 300px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: #fff;
+            border: none;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+            &:focus {
+              border: solid blue;
+            }
+          }
+        }
+        .button {
+          margin-top: 20px;
+          width: 120px;
+          height: 45px;
+          box-shadow: 0px 0px 20px rgba(1, 236, 157, 0.6);
+          background-color: #fff;
+          border-radius: 10px;
+          color: #47e89a;
+          font-size: larger;
+          font-weight: 400;
+          &:hover {
+            cursor: pointer;
+            background-color: #47e89aa4;
+            color: #fff;
+          }
+        }
+        p {
+          text-align: center;
+          color: #ff3131;
+          font-weight: 600;
+        }
+      }
+    }
+    .contentLeftBox {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      background-color: #f4fff0bc;
+      border-radius: 15px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      justify-content: end;
+
+      .logoLogin {
+        display: flex;
+        width: 300px;
+        object-fit: cover;
+      }
+
+      .verifying {
+        display: flex;
+        width: 450px;
+        object-fit: cover;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
