@@ -44,10 +44,10 @@ const Navbar: React.FC = () => {
             GRAPH
           </div>
         </Link>
-        <Link to="/UserInfo" style={{ textDecoration: "none" }}>
+        <Link to="/Logout" style={{ textDecoration: "none" }}>
           <div className={styles.menuContent}>
             <img src={UserPNG} alt="User" />
-            USER
+            LOGOUT
           </div>
         </Link>
       </div>
