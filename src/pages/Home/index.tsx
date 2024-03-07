@@ -46,20 +46,18 @@ const Home: React.FC = () => {
             <h1 className={styles.text}> Get Started</h1>
           </Link>
         </div>
-        <div className={styles.content}>
-          <div className={styles.imgBoxLeft}>
+        <div className={styles.imgBoxLeft}>
+          <img
+            src={MobilePrototypePNG}
+            alt="MobilePrototypePNG"
+            className={styles.imgMobile}
+          />
+          <div className={styles.imgText}>
             <img
-              src={MobilePrototypePNG}
-              alt="MobilePrototypePNG"
-              className={styles.imgMobile}
+              src={DesktopPrototypePNG}
+              alt="CartoonCute3ShimpPNG"
+              className={styles.shimpImg}
             />
-            <div className={styles.imgText}>
-              <img
-                src={DesktopPrototypePNG}
-                alt="CartoonCute3ShimpPNG"
-                className={styles.shimpImg}
-              />
-            </div>
           </div>
         </div>
       </div>

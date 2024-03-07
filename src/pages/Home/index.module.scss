@@ -1,3 +1,4 @@
+@import "/src/styles/variable.scss";
 .container {
   display: flex;
   align-items: center;
@@ -5,6 +6,11 @@
   margin-top: 70px;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: map-get($breakpoints, md)) {
+    width: 98vw;
+    border: solid blue;
+  }
 
   .imgBoxRight {
     display: flex;
@@ -16,6 +22,9 @@
       width: 100%;
       height: 500px;
       object-fit: fill;
+      @media (max-width: map-get($breakpoints, md)) {
+        height: 200px;
+      }
     }
   }
   .text {
@@ -34,6 +43,11 @@
     transform: translateX(-50%); /* Center the button horizontally */
     z-index: 1; /* Ensure the button is above the image */
     overflow: hidden;
+    @media (max-width: map-get($breakpoints, md)) {
+      width: 150px;
+      height: 20px;
+      font-size: 16px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -78,58 +92,59 @@
       transform: translateX(100%);
     }
   }
-  .content {
+
+  .imgBoxLeft {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
+    width: 98vw;
     align-items: center;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    @media (max-width: map-get($breakpoints, md)) {
+      border: solid red;
+      width: 98vw;
+    }
 
-    .imgBoxLeft {
-      display: flex;
-      width: 800px;
-      align-items: center;
-      gap: 20px;
-      margin-top: 50px;
-
-      .imgMobile {
-        height: 400px;
-        animation: tiltAnimation 4s infinite alternate;
-        object-fit: contain;
-        border-radius: 36px;
-        box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.5);
-      }
-      .imgText {
-        display: flex;
-        flex-direction: column;
+    .imgMobile {
+      height: 400px;
+      animation: tiltAnimation 4s infinite alternate;
+      object-fit: contain;
+      border-radius: 36px;
+      box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.5);
+      margin-left: 20px;
+      @media (max-width: map-get($breakpoints, md)) {
+        height: 150px;
         border-radius: 16px;
-        align-items: center;
-        justify-content: center;
-        .title {
-          color: #fd8606;
-          box-shadow: 0px 0px 10px rgba(253, 141, 4, 0.2);
-          border-radius: 25px;
-          width: 550px;
-          padding: 10px 10px;
-          text-align: center;
+      }
+    }
+    .imgText {
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      .shimpImg {
+        width: 600px;
+        object-fit: contain;
+
+        @media (max-width: map-get($breakpoints, lg)) {
+          width: 450px;
         }
-        .shimpImg {
-          width: 600px;
-          object-fit: contain;
+        @media (max-width: map-get($breakpoints, sm)) {
+          width: 200px;
         }
       }
     }
   }
+}
 
-  @keyframes tiltAnimation {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(-2deg);
-    }
-    100% {
-      transform: rotate(2deg);
-    }
+@keyframes tiltAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
   }
 }
