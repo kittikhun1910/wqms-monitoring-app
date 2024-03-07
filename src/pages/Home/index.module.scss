@@ -1,61 +1,135 @@
-@import "/src/styles/variable.scss";
-
 .container {
   display: flex;
+  align-items: center;
   width: 98vw;
-  margin: 70px 50px 0 50px;
+  margin-top: 70px;
+  flex-direction: column;
+  align-items: center;
 
-  .contentLeft {
+  .imgBoxRight {
     display: flex;
     width: 100%;
+    position: relative; /* Add this line to make the image container a positioning context */
     justify-content: center;
-    align-items: center;
-    height: 600px;
 
-    img {
-      width: 700px;
-      height: 600px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-      filter: blur(2px);
+    .imgBoxDesktop {
+      width: 100%;
+      height: 500px;
+      object-fit: fill;
     }
   }
-  .contentRight {
-    display: flex;
-    width: 100%;
-    background-color: #fff;
-    flex-direction: column;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-    height: 600px;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  .text {
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(253, 141, 4, 0.2);
+    border-radius: 15px;
+    width: 300px;
+    height: 40px;
+    margin-top: -30px; /* Adjust the vertical position */
+    padding: 10px 5px;
+    border: solid 1px #ffffff;
+    position: absolute;
+    bottom: 10px; /* Adjust the vertical position */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Center the button horizontally */
+    z-index: 1; /* Ensure the button is above the image */
+    overflow: hidden;
 
-    .header {
-      text-align: center;
-      border: solid rebeccapurple 1px;
-    }
-    .buttonGetStart {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 200px;
-      height: 50px;
-      font-size: 20px;
-      font-weight: bold;
-      border-radius: 25px;
-      border: solid 2px #77e6ab;
-      background-color: #fff;
+    &:hover {
       cursor: pointer;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      button {
-        cursor: pointer;
+      background-color: #35f4a5;
+      color: #fff;
+      border: solid 3px #fff;
+      animation: none; /* Disable blinking on hover */
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        transparent,
+        #25eec6a2,
+        transparent
+      );
+      animation: blink 1s infinite alternate;
+    }
+
+    &:before {
+      left: -20%;
+      animation-delay: 0.5s;
+    }
+
+    &::after {
+      right: -20%;
+      animation-delay: 1s;
+    }
+  }
+
+  @keyframes blink {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+
+    .imgBoxLeft {
+      display: flex;
+      width: 800px;
+      align-items: center;
+      gap: 20px;
+      margin-top: 50px;
+
+      .imgMobile {
+        height: 400px;
+        animation: tiltAnimation 4s infinite alternate;
+        object-fit: contain;
+        border-radius: 36px;
+        box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.5);
       }
-      &:hover {
-        width: 205px;
-        height: 55px;
-        background-color: #77e6ab;
-        box-shadow: 0px 5px 10px rgba(5, 225, 137, 0.396);
+      .imgText {
+        display: flex;
+        flex-direction: column;
+        border-radius: 16px;
+        align-items: center;
+        justify-content: center;
+        .title {
+          color: #fd8606;
+          box-shadow: 0px 0px 10px rgba(253, 141, 4, 0.2);
+          border-radius: 25px;
+          width: 550px;
+          padding: 10px 10px;
+          text-align: center;
+        }
+        .shimpImg {
+          width: 600px;
+          object-fit: contain;
+        }
       }
+    }
+  }
+
+  @keyframes tiltAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-2deg);
+    }
+    100% {
+      transform: rotate(2deg);
     }
   }
 }

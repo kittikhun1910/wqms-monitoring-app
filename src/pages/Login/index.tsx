@@ -68,7 +68,7 @@ const Login: React.FC = () => {
       localStorage.setItem("token", data.token);
       setError(undefined);
       // Redirect to another page upon successful login
-      window.location.href = "/dashboard";
+      window.location.href = "/Dashboard";
     } catch (error: any) {
       setError(error.message);
     }
