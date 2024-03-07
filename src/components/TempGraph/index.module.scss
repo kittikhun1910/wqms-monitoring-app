@@ -5,11 +5,20 @@
   flex-direction: column;
   margin-top: 100px;
   background-color: rgb(255, 255, 255);
-  width: 1080px;
+  width: 900px;
   height: 500px;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
+
+  @media (max-width: map-get($breakpoints, lg)) {
+    width: 600px;
+    height: 300px;
+  }
+  @media (max-width: map-get($breakpoints, md)) {
+    width: 390px;
+    height: 250px;
+  }
 
   .headerBox {
     display: flex;
@@ -17,6 +26,11 @@
     padding: 5px;
     gap: 20px;
     margin-bottom: 20px;
+
+    @media (max-width: map-get($breakpoints, lg)) {
+      gap: 10px;
+      margin-bottom: 0;
+    }
     .buttonSelectdata {
       display: flex;
       gap: 5px;
@@ -27,6 +41,10 @@
         padding: 5px;
         border-radius: 15px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        @media (max-width: map-get($breakpoints, lg)) {
+          width: 80px;
+          height: 30px;
+        }
       }
       :hover {
         cursor: pointer;
@@ -39,13 +57,18 @@
         border-radius: 15px;
         background-color: #77e6aba8;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        @media (max-width: map-get($breakpoints, lg)) {
+          width: 80px;
+          height: 30px;
+        }
       }
     }
   }
 
   .graphBox {
     display: flex;
-    min-width: 800px;
-    min-height: 400px;
+    width: 100%;
+    height: 400px;
+
   }
 }

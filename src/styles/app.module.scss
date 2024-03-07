@@ -1,9 +1,14 @@
 @import "/src/styles/variable.scss";
 
 .container {
-    display: flex;
-    background-color: #f5f8ee;
-    min-width: 98.3vh;
-    max-width: 98.3vw;
-    min-height: 97.5vh;
+  display: flex;
+  background-color: #f5f8ee;
+  min-width: 98.3vh;
+  max-width: 98.3vw;
+  min-height: 97.5vh;
+
+  @media (max-width: map-get($breakpoints, md)) {
+    min-width: 0;
+    min-height: 0;
+  }
 }

@@ -206,14 +206,14 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
             High pH
             <div className={styles.imgContainer}>
               <img src={PhBalancePNG} alt="PhBalancePNG" />
-              {maxPH.value.toString() + " °C"}
+              {maxPH.value.toString()}
             </div>
           </div>
           <div className={styles.lowValue}>
             Low pH
             <div className={styles.imgContainer}>
               <img src={PhBalancePNG} alt="PhBalancePNG" />
-              {minPH.value.toString() + " °C"}
+              {minPH.value.toString()}
             </div>
           </div>
           <a href="/GraphPH">More Details</a>
