@@ -12,7 +12,7 @@ export default function Verify({ children }: Prop) {
       try {
         const token = localStorage.getItem("token");
         if (token) {
-          const response = await fetch("https://rw8y2lq7ja.execute-api.ap-southeast-1.amazonaws.com/dev/verify", {
+          const response = await fetch("/api/dev/verify", {
             method: "POST",
             redirect:'follow',
             body: JSON.stringify({
