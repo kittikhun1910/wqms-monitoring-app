@@ -47,8 +47,8 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "/api/dev/login",
-        // "https://rw8y2lq7ja.execute-api.ap-southeast-1.amazonaws.com/dev/login",
+        // "/api/dev/login",
+        "https://rw8y2lq7ja.execute-api.ap-southeast-1.amazonaws.com/dev/login",
         {
           method: "POST",
           body: JSON.stringify({
