@@ -25,16 +25,16 @@ export default function Verify({ children }: Prop) {
           });
 
           if (response.status !== 200) {
-            navigation("/Login");
+            navigation("/login");
           } else {
             setIsverify(true);
           }
         } else {
-          navigation("/Login");
+          navigation("/login");
         }
       } catch (err) {
         console.error("Error fetching data:", err);
-        navigation("/Login");
+        navigation("/login");
       }
     };
 

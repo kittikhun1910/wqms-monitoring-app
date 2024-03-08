@@ -8,11 +8,11 @@ const App: React.FC = () => {
     <div className={styles.container}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Graph" element={<Graph />} />
-        <Route path="/GraphPH" element={<GraphPH />} />
-        <Route path="/Logout" element={<Logout />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/graph" element={<Graph />} />
+        <Route path="/graphPH" element={<GraphPH />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
