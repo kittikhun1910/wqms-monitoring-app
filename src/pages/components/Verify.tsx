@@ -14,6 +14,7 @@ export default function Verify({ children }: Prop) {
         if (token) {
           const response = await fetch("/api/dev/verify", {
             method: "POST",
+            redirect:'follow',
             body: JSON.stringify({
               token: token,
             }),

@@ -1,7 +1,9 @@
 @import "/src/styles/variable.scss";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&family=Itim&display=swap");
 .container {
   display: flex;
   gap: 51px;
+  font-family: "Itim", cursive;
   @media (max-width: map-get($breakpoints, lg)) {
     flex-wrap: wrap;
   }
