@@ -70,7 +70,7 @@ const Login: React.FC = () => {
       localStorage.setItem("token", data.token);
       setError(undefined);
       // Redirect to another page upon successful login
-      window.location.href = "/dashboard";
+      window.location.href = "https://feature-deployapp.d2mhvftv3alvad.amplifyapp.com/dashboard";
     } catch (error: any) {
       setError(error.message);
     }
