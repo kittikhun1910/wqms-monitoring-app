@@ -20,6 +20,7 @@ const Login: React.FC = () => {
         if (token) {
           const response = await fetch("/api/dev/verify", {
             method: "POST",
+            redirect: "follow",
             body: JSON.stringify({
               token: token,
             }),
