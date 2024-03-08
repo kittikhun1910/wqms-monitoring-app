@@ -9,7 +9,6 @@
 
   @media (max-width: map-get($breakpoints, md)) {
     width: 98vw;
-    border: solid blue;
   }
 
   .imgBoxRight {
@@ -102,7 +101,6 @@
     align-items: center;
     margin-top: 20px;
     @media (max-width: map-get($breakpoints, md)) {
-      border: solid red;
       width: 98vw;
     }
 
