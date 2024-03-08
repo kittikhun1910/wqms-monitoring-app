@@ -3,22 +3,16 @@ import styles from "./index.module.scss";
 import { Link } from "react-router-dom"; // Assuming you're using React Router for navigation
 
 // Image
-import LOGOPNG from "/src/images/logo.png";
-import MenuBurger from "/src/images/menu-burger.png";
+import LOGOPNG from "/src/images/logo-big.png";
 import HomePNG from "/src/images/home.png";
 import GaugePNG from "/src/images/dashboard.png";
 import StatsPNG from "/src/images/stats.png";
-import UserPNG from "/src/images/user.png";
+import LogoutPNG from "/src/images/logout.png";
 
 const Navbar: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navGroupLeft}>
-        <div className={styles.imgMenu}>
-          <Link to="/">
-            <img src={MenuBurger} alt="Menu" className={styles.menu} />
-          </Link>
-        </div>
         <div className={styles.imgLogo}>
           <Link to="/">
             <img src={LOGOPNG} alt="LOGOPNG" className={styles.logo} />
@@ -46,7 +40,7 @@ const Navbar: React.FC = () => {
         </Link>
         <Link to="/Logout" style={{ textDecoration: "none" }}>
           <div className={styles.menuContent}>
-            <img src={UserPNG} alt="User" />
+            <img src={LogoutPNG} alt="User" />
             LOGOUT
           </div>
         </Link>
