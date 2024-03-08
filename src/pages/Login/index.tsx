@@ -56,6 +56,7 @@ const Login: React.FC = () => {
             password: password,
           }),
           mode: "cors",
+          redirect: "follow",
           headers: {
             "Content-Type": "application/json",
           },
