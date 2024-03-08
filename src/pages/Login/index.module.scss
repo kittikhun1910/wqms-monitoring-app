@@ -106,11 +106,9 @@
       width: 100%;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
       background-color: #f4fff0bc;
       border-radius: 15px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      justify-content: end;
       @media (max-width: map-get($breakpoints, md)) {
         display: none;
       }
@@ -122,6 +120,7 @@
         display: flex;
         width: 300px;
         object-fit: cover;
+        margin-top: 20px;
         @media (max-width: map-get($breakpoints, lg)) {
           width: 200px;
         }
@@ -131,7 +130,6 @@
         display: flex;
         width: 450px;
         object-fit: cover;
-        margin-bottom: 50px;
         @media (max-width: map-get($breakpoints, lg)) {
           width: 300px;
         }

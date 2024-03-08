@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./index.module.scss";
 
 import LogoPNG from "/public/webIcon.png";
@@ -81,6 +81,9 @@ const Login: React.FC = () => {
         <div className={style.contentLeftBox}>
           <img src={LogoLogin} alt="LogoLogin" className={style.logoLogin} />
           <img src={VerifyPNG} alt="VerifyPNG" className={style.verifying} />
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <h2>Back</h2>
+          </Link>
         </div>
         <div className={style.contentRightBox}>
           <img src={LogoPNG} alt="LogoPNG" />
