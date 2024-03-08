@@ -12,7 +12,8 @@ export const login = async (
   try {
     const response = await fetch(loginEndpoint, {
       method: "POST",
-      mode:'cors',
+      mode: "cors",
+      redirect: "follow",
       headers: {
         "Content-Type": "application/json",
       },
