@@ -1,10 +1,12 @@
 @import "/src/styles/variable.scss";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&family=Itim&display=swap");
 
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 98vw;
+  font-family: "Itim", cursive;
 
   .contentBox {
     display: flex;
