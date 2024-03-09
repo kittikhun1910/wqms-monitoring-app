@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./index.module.scss";
 
 import LogoPNG from "/public/webIcon.png";
@@ -20,6 +20,7 @@ const Login: React.FC = () => {
         if (token) {
           const response = await fetch("/api/dev/verify", {
             method: "POST",
+            redirect: "follow",
             body: JSON.stringify({
               token: token,
             }),
@@ -55,6 +56,7 @@ const Login: React.FC = () => {
             password: password,
           }),
           mode: "cors",
+          redirect: "follow",
           headers: {
             "Content-Type": "application/json",
           },
@@ -68,7 +70,7 @@ const Login: React.FC = () => {
       localStorage.setItem("token", data.token);
       setError(undefined);
       // Redirect to another page upon successful login
-      window.location.href = "/Dashboard";
+      window.location.href = "/dashboard";
     } catch (error: any) {
       setError(error.message);
     }
@@ -80,6 +82,9 @@ const Login: React.FC = () => {
         <div className={style.contentLeftBox}>
           <img src={LogoLogin} alt="LogoLogin" className={style.logoLogin} />
           <img src={VerifyPNG} alt="VerifyPNG" className={style.verifying} />
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <h2>Back</h2>
+          </Link>
         </div>
         <div className={style.contentRightBox}>
           <img src={LogoPNG} alt="LogoPNG" />
