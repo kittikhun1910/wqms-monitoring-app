@@ -16,6 +16,8 @@ import {
 import Verify from "../components/Verify";
 
 const Dashboard: React.FC = () => {
+
+  // State to hold the fetched data
   const [data, setData] = useState<{
     waterData: { time: string; field: string; value: string }[] | null;
     maxMinpHData: { time: string; field: string; value: string }[] | null;
@@ -28,6 +30,7 @@ const Dashboard: React.FC = () => {
     relayStatus: null,
   });
 
+  // Fetch data from InfluxDB when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,19 +49,28 @@ const Dashboard: React.FC = () => {
   }, []);
 
   return (
+
+    // Use the Verify component to ensure user authentication
     <Verify>
       <div className={styles.container}>
+        {/* Display the navigation bar */}
         <Navbar />
+
         <div className={styles.contentBox}>
+          {/* Display water parameter data */}
           <DisplayWaterParametor data={data as any} />
           <div className={styles.subContentBox}>
+            {/* Display real-time clock and calendar */}
             <RealTimeCock />
             <RealTimeCalendar />
+
           </div>
         </div>
         <div className={styles.bottomBox}>
+          {/* Display relay status and water level */}
           <DisplayRelayComponent data={data as any} />
           <DisplayWaterLevel data={data as any} />
+          
         </div>
       </div>
     </Verify>

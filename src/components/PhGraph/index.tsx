@@ -3,32 +3,39 @@ import React, { useState } from "react";
 import JSCChart from "jscharting-react";
 import styles from "./index.module.scss";
 
+// Interface for pH data
 interface pHAllData {
   time: string;
   field: string;
   value: string | number;
 }
 
+// Props for DisplayPHGraph component
 interface DisplayPHGraphProps {
   data: {
     pHAllData: pHAllData[] | null;
   };
 }
 
+// Functional component to display pH graph
 const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
   const pHAllData = data.pHAllData || [];
   console.log(pHAllData, "display");
 
+  // State to track selected graph period
   const [selectedGraph, setSelectedGraph] = useState<"1h" | "1d" | "7d">("1h");
 
+  // Function to handle graph change
   const handleGraphChange = (graph: "1h" | "1d" | "7d") => {
     setSelectedGraph(graph);
   };
 
+  // Function to get button className based on selected graph period
   const getButtonClassName = (graph: "1h" | "1d" | "7d") => {
     return selectedGraph === graph ? styles.activeButton : styles.button;
   };
 
+  // Filter data for last 30 days
   const last30DaysData = pHAllData.filter((item) => {
     const currentDate = new Date(item.time);
     const last30DaysDate = new Date();
@@ -36,6 +43,7 @@ const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
     return currentDate > last30DaysDate;
   });
 
+  // Filter data for last 1 hour
   const last1HourData = last30DaysData.filter((item) => {
     const currentDate = new Date(item.time);
     const last1HourDate = new Date();
@@ -43,8 +51,10 @@ const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
     return currentDate > last1HourDate;
   });
 
+  // Map data for chart
   const chartData1h = last1HourData.map((item) => [item.time, item.value]);
 
+  // Filter data for last 1 Day
   const last1DayData = last30DaysData.filter((item) => {
     const currentDate = new Date(item.time);
     const last1DayDate = new Date();
@@ -52,8 +62,10 @@ const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
     return currentDate > last1DayDate;
   });
 
+  // Map data for chart
   const chartData1d = last1DayData.map((item) => [item.time, item.value]);
 
+  // Filter data for last 7 Day
   const last7DaysData = last30DaysData.filter((item) => {
     const currentDate = new Date(item.time);
     const last7DaysDate = new Date();
@@ -61,8 +73,10 @@ const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
     return currentDate > last7DaysDate;
   });
 
+  // Map data for chart
   const chartData7d = last7DaysData.map((item) => [item.time, item.value]);
 
+  // Options for 1-hour chart
   const options1h = {
     debug: false,
     type: "line",
@@ -84,6 +98,7 @@ const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
     series: [{ name: "Purchases", points: chartData1h }],
   };
 
+  // Options for 1-day chart
   const options1d = {
     debug: false,
     type: "line",
@@ -105,6 +120,7 @@ const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
     series: [{ name: "Purchases", points: chartData1d }],
   };
 
+  // Options for 7-day chart
   const options7d = {
     debug: false,
     type: "line",
@@ -126,6 +142,7 @@ const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
     series: [{ name: "Purchases", points: chartData7d }],
   };
 
+  // Determine selected options based on selectedGraph state
   let selectedOptions;
   if (selectedGraph === "1h") {
     selectedOptions = options1h;
@@ -135,6 +152,7 @@ const PhGraph: React.FC<DisplayPHGraphProps> = ({ data }) => {
     selectedOptions = options7d;
   }
 
+  // Render the component with the selected graph
   return (
     <div className={styles.container}>
       <div className={styles.headerBox}>
