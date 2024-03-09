@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import { Link } from "react-router-dom"; // Assuming you're using React Router for navigation
 
 // Image
-import LOGOPNG from "/src/images/logo.png";
+import LOGOPNG from "/src/images/logo-big.png";
 import MenuBurger from "/src/images/menu-burger.png";
 import HomePNG from "/src/images/home.png";
 import GaugePNG from "/src/images/dashboard.png";
