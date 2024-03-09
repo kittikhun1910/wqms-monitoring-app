@@ -6,12 +6,14 @@ import { Navbar, PhGraph } from "../../components";
 import Verify from "../components/Verify";
 
 const GraphPH: React.FC = () => {
+  // State to hold the fetched pH data
   const [data, setData] = useState<{
     pHAllData: { time: string; field: string; value: string }[] | null;
   }>({
     pHAllData: null,
   });
 
+  // Fetch pH data from InfluxDB when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,28 +26,31 @@ const GraphPH: React.FC = () => {
 
     fetchData();
   }, []);
-  console.log(data.pHAllData);
 
   return (
+
+    // Use the Verify component to ensure user authentication
     <Verify>
       <>
         <Navbar />
         <div className={styles.container}>
+          {/* Back button to navigate back to the temperature graph */}
           <button
             className={styles.button}
-            onClick={() => (window.location.href = "/Graph")}
+            onClick={() => (window.location.href = "/graph")}
           >
-            {" "}
             Back to Temp
           </button>
           <div className={styles.content}>
+            {/* Display the pH graph */}
             <PhGraph data={data as any} />
+
           </div>
+          {/* Button to navigate back to the dashboard */}
           <button
             className={styles.button}
-            onClick={() => (window.location.href = "/Dashboard")}
+            onClick={() => (window.location.href = "/dashboard")}
           >
-            {" "}
             Dashboard
           </button>
         </div>
