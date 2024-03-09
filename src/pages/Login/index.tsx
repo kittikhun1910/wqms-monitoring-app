@@ -13,6 +13,7 @@ const Login: React.FC = () => {
 
   const navigation = useNavigate();
 
+  // Check if the user is already authenticated and redirect to the dashboard
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -43,6 +44,7 @@ const Login: React.FC = () => {
     fetchData();
   }, []);
 
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
