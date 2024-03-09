@@ -2,16 +2,19 @@ import React from "react";
 import styles from "./index.module.scss";
 import { JSCharting } from "jscharting-react";
 
+// Importing images
 import TemperatureUpPNG from "/src/images/temperature-up.png";
 import TemperatureDownPNG from "/src/images/temperature-down.png";
 import PhBalancePNG from "/src/images/ph-balance.png";
 
+// Defining the structure of the water data
 interface WaterData {
   time: string;
   field: string;
   value: string | number;
 }
 
+// Defining the props for the DisplayWaterParametor component
 interface DisplayWaterParametorProps {
   data: {
     waterData: WaterData[] | null;
@@ -20,13 +23,18 @@ interface DisplayWaterParametorProps {
   };
 }
 
+// Functional component to display water parameters
 const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
   data,
 }) => {
+  // Extracting max/min pH data from props, defaulting to an empty array
   const maxMinpHData = data.maxMinpHData || [];
+
+  // Finding the initial min and max pH values
   const initialMin = maxMinpHData.find((item) => item.value !== null);
   const initialMax = maxMinpHData.find((item) => item.value !== null);
 
+  // Finding the max and min pH values
   const maxPH = maxMinpHData.reduce((prevMax, current) => {
     if (current.value !== null && current.value > prevMax.value) {
       return current;
@@ -43,9 +51,14 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
     }
   }, initialMin || ({ value: Number.MAX_SAFE_INTEGER } as WaterData));
 
+  // Extracting max/min temperature data from props, defaulting to an empty array
   const maxMinTempData = data.maxMinTempData || [];
+
+  // Finding the initial min and max temperature values
   const initialMinTemp = maxMinTempData.find((item) => item.value !== null);
   const initialMaxTemp = maxMinTempData.find((item) => item.value !== null);
+
+  // Finding the max and min temperature values
   const maxTemp = maxMinTempData.reduce((prevMax, current) => {
     if (current.value !== null && current.value > prevMax.value) {
       return current;
@@ -61,6 +74,7 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
     }
   }, initialMinTemp || ({ value: Number.MAX_SAFE_INTEGER } as WaterData));
 
+  // Extracting current temperature and pH data from props, defaulting to an empty array
   const tempNowData = data.waterData || [];
   const initialTempNow = tempNowData.find(
     (item) => item.field === "temperature"
@@ -69,7 +83,9 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
   const pHNowData = data.waterData || [];
   const initialpHNow = pHNowData.find((item) => item.field === "avgpH");
 
+  // Configuration for the temperature chart
   const configtemp = {
+    // Configuration options
     debug: false,
     legend_visible: false,
     defaultTooltip_enabled: false,
@@ -121,7 +137,9 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
     ],
   };
 
+  // Configuration for the pH chart
   const configph = {
+    // Configuration options
     debug: false,
     legend_visible: false,
     defaultTooltip_enabled: false,
@@ -175,10 +193,13 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
       },
     ],
   };
+
+  // Rendering the component with the temperature and pH charts
   return (
     <div className={styles.container}>
       <div className={styles.tempGuage}>
         <div className={styles.sumBox}>
+          {/* Temperature summary */}
           <div className={styles.hightValue}>
             High Temp
             <div className={styles.imgContainer}>
@@ -195,6 +216,8 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
           </div>
           <a href="/Graph">More Details</a>
         </div>
+
+        {/* Temperature chart */}
         <div className={styles.divStyle}>
           Temperatures
           <JSCharting options={configtemp} className={styles.chart} />
@@ -202,6 +225,8 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
       </div>
       <div className={styles.phGuage}>
         <div className={styles.sumBox}>
+
+          {/* pH summary */}
           <div className={styles.hightValue}>
             High pH
             <div className={styles.imgContainer}>
@@ -218,6 +243,8 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
           </div>
           <a href="/GraphPH">More Details</a>
         </div>
+        
+        {/* pH chart */}
         <div className={styles.divStyle}>
           pH
           <JSCharting options={configph} className={styles.chart} />
@@ -227,4 +254,5 @@ const DisplayWaterParametor: React.FC<DisplayWaterParametorProps> = ({
   );
 };
 
+// Exporting the DisplayWaterParametor component
 export default DisplayWaterParametor;
