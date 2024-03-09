@@ -40,18 +40,24 @@ const Navbar: React.FC = () => {
             HOME
           </div>
         </Link>
+
+        {/* Link to the dashboard */}
         <Link to="/dashboard" style={{ textDecoration: "none" }}>
           <div className={styles.menuContent}>
             <img src={GaugePNG} alt="Dashboard" />
             DASHBOARD
           </div>
         </Link>
+
+        {/* Link to the graph page */}
         <Link to="/graph" style={{ textDecoration: "none" }}>
           <div className={styles.menuContent}>
             <img src={StatsPNG} alt="Stats" />
             GRAPH
           </div>
         </Link>
+
+        {/* Link to the logout page */}
         <Link to="/logout" style={{ textDecoration: "none" }}>
           <div className={styles.menuContent}>
             <img src={LogoutPNG} alt="User" />
