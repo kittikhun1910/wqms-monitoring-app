@@ -30,5 +30,5 @@ export default {
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
 
-- step1 create vite app
-- ``` $ npm create vite@latest```
+- `step1` create vite app
+``` $ npm create vite@latest```
