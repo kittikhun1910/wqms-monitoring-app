@@ -31,4 +31,19 @@ export default {
 
 
 - `step1` create vite app
-``` $ npm create vite@latest```
+``` $ npm create vite@latest or
+# npm 7+, extra double-dash is needed:
+npm create vite@latest my-vue-app -- --template vue
+
+# yarn
+yarn create vite my-vue-app --template vue
+
+# pnpm
+pnpm create vite my-vue-app --template vue
+
+# bun
+bun create vite my-vue-app --template vue
+```
+- `step2` run bulid ``` $ npm run build  and  $ npm run preview ```
+- `step3` run install ``` $ npm install ```
+- `step4` start  ``` $ npm run dev ```
