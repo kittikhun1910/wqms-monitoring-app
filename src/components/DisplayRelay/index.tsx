@@ -22,7 +22,7 @@ interface DisplayRelayProps {
 
 const DisplayRelayComponent: React.FC<DisplayRelayProps> = ({ data }) => {
   // Initialize the MQTT client
-  const mqttClient = mqtt.connect("ws://54.255.69.30:8080");
+  const mqttClient = mqtt.connect("ws://localhost:8080");
 
   // Retrieve relay status data from props or set to an empty array if null
   const relayData = data.relayStatus || [];
@@ -68,7 +68,7 @@ const DisplayRelayComponent: React.FC<DisplayRelayProps> = ({ data }) => {
   ) => {
     setChecked(val);
     const message = JSON.stringify({ relay_1: val ? 1 : 0 });
-    mqttClient.publish("esp32/test", message);
+    mqttClient.publish("topic", message);
   };
 
   // Function to handle changes in relay  switch state
@@ -77,7 +77,7 @@ const DisplayRelayComponent: React.FC<DisplayRelayProps> = ({ data }) => {
   ) => {
     setChecked2(val2);
     const message = JSON.stringify({ relay_2: val2 ? 1 : 0 });
-    mqttClient.publish("esp32/test", message);
+    mqttClient.publish("topic", message);
   };
 
   // Function to handle changes in relay  switch state
@@ -86,7 +86,7 @@ const DisplayRelayComponent: React.FC<DisplayRelayProps> = ({ data }) => {
   ) => {
     setChecked3(val3);
     const message = JSON.stringify({ relay_3: val3 ? 1 : 0 });
-    mqttClient.publish("esp32/test", message);
+    mqttClient.publish("topic", message);
   };
 
   // Function to handle changes in relay  switch state
@@ -95,7 +95,7 @@ const DisplayRelayComponent: React.FC<DisplayRelayProps> = ({ data }) => {
   ) => {
     setChecked4(val4);
     const message = JSON.stringify({ relay_4: val4 ? 1 : 0 });
-    mqttClient.publish("esp32/test", message);
+    mqttClient.publish("topic", message);
   };
 
   // Function to handle changes in relay  switch state
@@ -104,7 +104,7 @@ const DisplayRelayComponent: React.FC<DisplayRelayProps> = ({ data }) => {
   ) => {
     setChecked5(val5);
     const message = JSON.stringify({ relay_5: val5 ? 1 : 0 });
-    mqttClient.publish("esp32/test", message);
+    mqttClient.publish("topic", message);
   };
 
   // Function to handle changes in relay  switch state
@@ -113,7 +113,7 @@ const DisplayRelayComponent: React.FC<DisplayRelayProps> = ({ data }) => {
   ) => {
     setChecked6(val6);
     const message = JSON.stringify({ relay_6: val6 ? 1 : 0 });
-    mqttClient.publish("esp32/test", message);
+    mqttClient.publish("topic", message);
   };
 
   // Render the UI elements for each tank with relay switches
